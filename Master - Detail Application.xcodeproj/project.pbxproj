@@ -15,7 +15,7 @@
 		2142DFA9282FFAA300F8E35D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2142DFA8282FFAA300F8E35D /* Assets.xcassets */; };
 		2142DFAC282FFAA300F8E35D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2142DFAA282FFAA300F8E35D /* LaunchScreen.storyboard */; };
 		2142DFC32830143200F8E35D /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2142DFC22830143200F8E35D /* HomeViewController.swift */; };
-		21708C2728304899004DA9D1 /* WebServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21708BA828304898004DA9D1 /* WebServices.swift */; };
+		21708C2728304899004DA9D1 /* HomeServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21708BA828304898004DA9D1 /* HomeServices.swift */; };
 		21708C2928304899004DA9D1 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21708BAB28304898004DA9D1 /* Router.swift */; };
 		21708C2A28304899004DA9D1 /* NetworkConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21708BAC28304898004DA9D1 /* NetworkConstant.swift */; };
 		21708C31283056F1004DA9D1 /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21708C2B283056F1004DA9D1 /* UIViewController+Extension.swift */; };
@@ -49,7 +49,7 @@
 		2142DFAB282FFAA300F8E35D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2142DFAD282FFAA300F8E35D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2142DFC22830143200F8E35D /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
-		21708BA828304898004DA9D1 /* WebServices.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebServices.swift; sourceTree = "<group>"; };
+		21708BA828304898004DA9D1 /* HomeServices.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeServices.swift; sourceTree = "<group>"; };
 		21708BAB28304898004DA9D1 /* Router.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
 		21708BAC28304898004DA9D1 /* NetworkConstant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkConstant.swift; sourceTree = "<group>"; };
 		21708C2B283056F1004DA9D1 /* UIViewController+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
@@ -107,9 +107,8 @@
 		2142DF9B282FFAA100F8E35D /* Master - Detail Application */ = {
 			isa = PBXGroup;
 			children = (
+				21708C4D28307197004DA9D1 /* Home Module */,
 				21708B0B283047A0004DA9D1 /* Network */,
-				2142DFBE28300CDE00F8E35D /* HomeDetails Screen */,
-				2142DFBA282FFD2F00F8E35D /* Home Screen */,
 				2142DFB9282FFCFA00F8E35D /* Storyboards */,
 				2142DFB5282FFC1F00F8E35D /* Resources */,
 				2142DFB4282FFC0B00F8E35D /* Delegates */,
@@ -189,6 +188,8 @@
 		2142DFBB282FFFAC00F8E35D /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				21708C4728306E7E004DA9D1 /* MoviesResponse.swift */,
+				21708C4928306E9C004DA9D1 /* Movie.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -222,6 +223,11 @@
 		2142DFC128300D1300F8E35D /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				21708C37283057B3004DA9D1 /* PhotoSearchRequest.swift */,
+				21708C3928306346004DA9D1 /* PhotoSearchResponse.swift */,
+				21708C3B2830636B004DA9D1 /* Photos.swift */,
+				21708C3D28306374004DA9D1 /* Photo.swift */,
+				21708C3F283063BF004DA9D1 /* Server.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -229,43 +235,29 @@
 		21708B0B283047A0004DA9D1 /* Network */ = {
 			isa = PBXGroup;
 			children = (
-				21708BA728304898004DA9D1 /* Interceptor */,
-				21708B0C28304898004DA9D1 /* Model */,
-				21708BA928304898004DA9D1 /* Router */,
+				21708BAB28304898004DA9D1 /* Router.swift */,
+				21708BAC28304898004DA9D1 /* NetworkConstant.swift */,
+				21708C41283069BB004DA9D1 /* NetworkClient.swift */,
 			);
 			path = Network;
-			sourceTree = "<group>";
-		};
-		21708B0C28304898004DA9D1 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-				21708C37283057B3004DA9D1 /* PhotoSearchRequest.swift */,
-				21708C3928306346004DA9D1 /* PhotoSearchResponse.swift */,
-				21708C3B2830636B004DA9D1 /* Photos.swift */,
-				21708C3D28306374004DA9D1 /* Photo.swift */,
-				21708C3F283063BF004DA9D1 /* Server.swift */,
-				21708C4728306E7E004DA9D1 /* MoviesResponse.swift */,
-				21708C4928306E9C004DA9D1 /* Movie.swift */,
-			);
-			path = Model;
 			sourceTree = "<group>";
 		};
 		21708BA728304898004DA9D1 /* Interceptor */ = {
 			isa = PBXGroup;
 			children = (
-				21708BA828304898004DA9D1 /* WebServices.swift */,
+				21708BA828304898004DA9D1 /* HomeServices.swift */,
 			);
 			path = Interceptor;
 			sourceTree = "<group>";
 		};
-		21708BA928304898004DA9D1 /* Router */ = {
+		21708C4D28307197004DA9D1 /* Home Module */ = {
 			isa = PBXGroup;
 			children = (
-				21708BAB28304898004DA9D1 /* Router.swift */,
-				21708BAC28304898004DA9D1 /* NetworkConstant.swift */,
-				21708C41283069BB004DA9D1 /* NetworkClient.swift */,
+				21708BA728304898004DA9D1 /* Interceptor */,
+				2142DFBE28300CDE00F8E35D /* HomeDetails Screen */,
+				2142DFBA282FFD2F00F8E35D /* Home Screen */,
 			);
-			path = Router;
+			path = "Home Module";
 			sourceTree = "<group>";
 		};
 		769A56F07EFAA38CBC92A77D /* Pods */ = {
@@ -419,7 +411,7 @@
 				21708C31283056F1004DA9D1 /* UIViewController+Extension.swift in Sources */,
 				21708C2928304899004DA9D1 /* Router.swift in Sources */,
 				21708C38283057B3004DA9D1 /* PhotoSearchRequest.swift in Sources */,
-				21708C2728304899004DA9D1 /* WebServices.swift in Sources */,
+				21708C2728304899004DA9D1 /* HomeServices.swift in Sources */,
 				21708C33283056F2004DA9D1 /* Encodable+Extension.swift in Sources */,
 				2142DFA7282FFAA100F8E35D /* Master___Detail_Application.xcdatamodeld in Sources */,
 				21708C32283056F1004DA9D1 /* UIView+Extenstion.swift in Sources */,
