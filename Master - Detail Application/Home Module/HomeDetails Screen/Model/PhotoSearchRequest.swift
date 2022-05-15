@@ -13,7 +13,8 @@ struct PhotoSearchRequest: Codable {
     let perPage: Int
     let nojsoncallback: Int = 1
     let format: String = "json"
-    let requestKey: String
+    let requestKey: String = NetworkConstants.apiKey
+    let method: String = "flickr.photos.search"
     
     enum CodingKeys: String, CodingKey {
         case title = "text"
@@ -21,5 +22,6 @@ struct PhotoSearchRequest: Codable {
         case requestKey = "api_key"
         case nojsoncallback
         case format, page
+        case method
     }
 }

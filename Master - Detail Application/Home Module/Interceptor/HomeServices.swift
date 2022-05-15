@@ -9,25 +9,27 @@
 import Foundation
 import Alamofire
 
-class HomeServices: NSObject{
+class HomeServices: HomeServicesProtocol{
     
     //MARK:- getPhotos
-    static func getPhotos(request:PhotoSearchRequest,
-                          sucess: @escaping(PhotoSearchResponse)->Void,
-                          error: @escaping(Error)->Void)
+    func getPhotos(request:PhotoSearchRequest,
+                   sucess: @escaping([Photo])->Void,
+                   error: @escaping(Error)->Void)
     {
+        
         NetworkClient.performRequest(PhotoSearchResponse.self, router: APIRouter.photoSearch(request: request), success: {  (model) in
-            sucess(model)
+            sucess(model.photos.photo)
         }) {  (_error) in
             print(_error.localizedDescription)
             error(_error)
         }
         
+        
     }
     
     func loadMovies() -> [Movie]? {
         if let url = Bundle.main.url(forResource: NetworkConstants.moviesFileName,
-                                    withExtension: "json")
+                                     withExtension: "json")
         {
             do {
                 let data = try Data(contentsOf: url)

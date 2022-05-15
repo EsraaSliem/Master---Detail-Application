@@ -17,11 +17,14 @@ struct NetworkClient {
     // All objects must conform to "Decodable" protocol
     
     static func performRequest<T>(_ object: T.Type, router: APIRouter, success: @escaping onSuccess<T>, failure: @escaping onFailure) where T: Decodable{
+        
             AF.request(router).responseJSON { (response) in
                 do {
+                    debugPrint(response)
                     print("responseresponse :\(response)")
                     print("router.path :\(router.path)")
-                    let Lists = try JSONDecoder().decode(object.self, from: response.data!)
+                    guard let data  = response.data else { return }
+                    let Lists = try JSONDecoder().decode(object.self, from: data)
                     success(Lists)
                 } catch let error{
                     failure(error)

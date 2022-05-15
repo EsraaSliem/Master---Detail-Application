@@ -15,7 +15,7 @@ enum APIRouter: URLRequestConvertible {
     
     var method: HTTPMethod {
         switch self {
-       
+            
         default:
             return .get
         }
@@ -23,49 +23,25 @@ enum APIRouter: URLRequestConvertible {
     
     var path: String {
         switch self {
-        case .photoSearch(_):
-            return NetworkConstants.flickrApiBaseURL
-        }
-    }
-    
-    var parameters: Parameters? {
-        switch self {
-       
-        case .photoSearch(let request):
-            do {
-                let dict = try? request.asDictionary()
-                print(dict)
-                return dict
-            } catch {
-                print("catch")
-                return nil
-            }
-       
-        }
-    }
-    // encoding, either URL (normal url query) or a JSON body..
-    var encoding: ParameterEncoding {
-        switch self {
-            
         default:
-            return JSONEncoding.default
-            
+            return ""
         }
     }
     
     func asURLRequest() throws -> URLRequest {
         let url = try NetworkConstants.flickrApiBaseURL.asURL().appendingPathComponent(path)
-        
         var request = URLRequest(url: url)
         request.httpMethod = method.rawValue
         
         // Common Headers
         request.setValue(ContentType.json.rawValue, forHTTPHeaderField: HTTPHeaderField.contentType.rawValue)
-        if let parameters = parameters {
-            return try encoding.encode(request, with: parameters)
-        }
         
+        switch self {
+        case .photoSearch(let data):
+            request = try URLEncoding.queryString.encode(request, with: data.dictionary)
+        }
         return request
+        
     }
     
 }

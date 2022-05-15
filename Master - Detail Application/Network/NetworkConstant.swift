@@ -12,9 +12,7 @@ struct NetworkConstants {
     
     static let apiKey = "56e76b73d922b98ec5dc571ca95eb139"
     
-    static let flickrApiBaseURL = "https://api.flickr.com/services/rest/"
-    
-    static let searchURL = "?method=flickr.photos.search"
+    static let flickrApiBaseURL = "https://www.flickr.com/services/rest/"
     
     static let moviesFileName = "movies"
 }

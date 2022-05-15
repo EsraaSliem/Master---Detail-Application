@@ -13,4 +13,7 @@ struct Photo: Codable {
     let farm: Int
     let title: String
     let ispublic, isfriend, isfamily: Int
+    var url: String {
+        return "https://farm\(farm).static.flickr.com/\(server.value)/\(id)_\(secret).jpg"
+    }
 }
